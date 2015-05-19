@@ -1,0 +1,20 @@
+<html>
+  <head>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="jquery.csv-0.71.js"></script>
+  <script>
+    function drawChart() {
+      loadChart( 'line', 'Votes', "output/homeAlone.csv", 'chart_div0' )
+      loadChart( 'line', 'Votes', "output/homeAlone3.csv", 'chart_div1' )
+      loadChart( 'line', 'Votes', "output/forrestGump.csv", 'chart_div2' )
+    }
+   </script>
+   <script src="charts.js"></script>
+  </head>
+  <body>
+    <div id="chart_div0" style="width: 7500px; height: 500px;"></div>
+    <div id="chart_div1" style="width: 7500px; height: 500px;"></div>
+    <div id="chart_div2" style="width: 7500px; height: 500px;"></div>
+  </body>
+</html>

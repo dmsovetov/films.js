@@ -1,0 +1,19 @@
+<html>
+  <head>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="jquery.csv-0.71.js"></script>
+  <script src="charts.js"></script>
+  <script>
+    function drawChart() {
+      loadHistogramTo( 'Distance', "output/similarityDistance.csv", 'chart_div0' )
+      loadHistogramTo( 'Cosine', "output/similarityCosine.csv", 'chart_div1' )
+      loadHistogramTo( 'CosineAdjusted', "output/similarityCosineAdjusted.csv", 'chart_div2' )
+      loadHistogramTo( 'Pearson', "output/similarityPearson.csv", 'chart_div3' )
+    }
+   </script>
+  </head>
+  <body>
+    <div id="chart_div0" style="width: 900px; height: 250px;"></div>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+   <script src="jquery.csv-0.71.js"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+
+      function loadHistogramTo( title, fileName, target ) {
+        var chart = new google.visualization.ColumnChart( document.getElementById( target ) )
+
+         $.get( fileName,
+            function( csvString ) {
+               var rows    = csvString.split( '\n' )
+               var charts  = []
+
+               charts.push( rows[0].split( ',' ) )
+
+               for( var i = 1; i < rows.length - 1; i++ ) {
+                  var row  = rows[i].split( ',' )
+                  var cols = []
+
+                  for( var j = 0; j < row.length; j++ ) {
+                     cols.push( j == 0 ? row[j] : parseInt( row[j] ) )
+                  }
+
+                  charts.push( cols )
+               }
+
+               chart.draw( google.visualization.arrayToDataTable( charts ), { legend: { position: "top" }, title: title } )
+            } )
+      }
+
+      function drawChart() {
+        loadHistogramTo( 'Similarity', "output/similarity.csv", 'chart_div0' )
+        loadHistogramTo( 'User similarity', "output/userSimilarity.csv", 'chart_div1' )
+        loadHistogramTo( 'Similar Users', "output/similars.csv", 'chart_div2' )
+        loadHistogramTo( 'Root Mean Square Error', "output/rmse.csv", 'chart_div3' )
+        /*
+        loadHistogramTo( 'Root Mean Square Error (0.01)', "output/rmseSt1.csv", 'chart_div1' )
+        loadHistogramTo( 'Root Mean Square Error (0.02)', "output/rmseSt2.csv", 'chart_div2' )
+        loadHistogramTo( 'Root Mean Square Error (0.04)', "output/rmseSt4.csv", 'chart_div3' )
+        loadHistogramTo( 'Root Mean Square Error (0.08)', "output/rmseSt8.csv", 'chart_div4' )
+        loadHistogramTo( 'Root Mean Square Error (0.16)', "output/rmseSt16.csv", 'chart_div5' )
+        loadHistogramTo( 'Root Mean Square Error (0.32)', "output/rmseSt32.csv", 'chart_div6' )
+        loadHistogramTo( 'Root Mean Square Error (0.64)', "output/rmseSt64.csv", 'chart_div7' )*/
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div0" style="width: 1800px; height: 500px;"></div>
+    <div id="chart_div1" style="width: 1800px; height: 500px;"></div>
+    <div id="chart_div2" style="width: 1800px; height: 500px;"></div>
+    <div id="chart_div3" style="width: 1800px; height: 500px;"></div>
+    <div id="chart_div4" style="width: 1800px; height: 500px;"></div>
+    <div id="chart_div5" style="width: 1800px; height: 500px;"></div>
+    <div id="chart_div6" style="width: 1800px; height: 500px;"></div>
+    <div id="chart_div7" style="width: 1800px; height: 500px;"></div>
+  </body>
+</html>

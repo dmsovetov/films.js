@@ -1,0 +1,14 @@
+include item
+
+table.table.table-striped.table-condensed
+    thead
+        tr
+            th Название
+            th Жанр
+            th Год
+            th Качество оценки
+    tbody
+        if items.length
+            each item in items
+                if item
+                    +similarItem( item )

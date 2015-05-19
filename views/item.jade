@@ -1,0 +1,43 @@
+mixin similarItem( item )
+    if item.quality == 2
+        tr.success
+            td
+                if item.video == ''
+                    small= item.name
+                else
+                    a(href= item.video target='blank')
+                        small= item.name
+            td
+                small= item.genres
+            td
+                small= item.year
+            th
+                small= item.qualityText
+    else if item.quality == 1
+        tr.warning
+            td
+                if item.video == ''
+                    small= item.name
+                else
+                    a(href= item.video target='blank')
+                        small= item.name
+            td
+                small= item.genres
+            td
+                small= item.year
+            th
+                small= item.qualityText
+    else
+        tr.danger
+            td
+                if item.video == ''
+                    small= item.name
+                else
+                    a(href= item.video target='blank')
+                        small= item.name
+            td
+                small= item.genres
+            td
+                small= item.year
+            th
+                small= item.qualityText

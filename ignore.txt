@@ -1,0 +1,15 @@
+bin/mongo
+bin/mongod
+bin/mongodump
+bin/mongorestore
+db
+node_modules
+tests
+data/*
+build/*
+src/DerivedData/*
+src/DataMining.xcodeproj/*
+src/libmongo/*
+app/uploads/*
+app/uploads
+backup-*.zip

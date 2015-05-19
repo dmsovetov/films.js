@@ -1,0 +1,22 @@
+{
+	"host":	"",
+	"path":	"/var/www/films",
+
+	"service":
+	{
+		"name":		"films",
+		"conf":		"bin/films.conf"
+	},
+
+	"backup":
+	{
+		"db":		["movielens:items", "recommender:items", "recommender:similar", "recommender:info"],
+		"folders":	[]
+	},
+
+	"deploy":
+	{
+		"db":		["movielens:items", "recommender:items", "recommender:similar", "recommender:info"],
+		"folders":	[]
+	}
+}
